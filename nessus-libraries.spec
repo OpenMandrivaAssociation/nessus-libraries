@@ -15,6 +15,7 @@ Patch0:		nessus-libraries-2.2.7-nessus-config.diff
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	openssl-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Nessus 2.2 is a free, up-to-date, and full featured remote security scanner for
