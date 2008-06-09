@@ -74,9 +74,13 @@ rm -rf %{buildroot}%{_datadir}/doc
 # workaround
 install -d %{buildroot}/usr/lib/debug
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
+%endif
 
 %clean
 if [ -d %{buildroot} ]; then rm -rf %{buildroot}; fi
