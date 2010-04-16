@@ -5,13 +5,14 @@
 Summary:	Libraries needed by the Nessus security scanner
 Name:		nessus-libraries
 Version:	2.2.10
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.nessus.org
 # http://cgi.tenablesecurity.com/nessus3dl.php?file=nessus-libraries-2.2.10.tar.gz&licence_accept=yes&t=5a144975306462c6d49d299ba1d6c0b2
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		nessus-libraries-2.2.7-nessus-config.diff
+Patch1:		nessus-libraries-2.2.10-link.patch
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	openssl-devel
@@ -48,24 +49,22 @@ Development libraries and headers for Nessus.
 
 %setup -q -n %{name}
 %patch0 -p0
+%patch1 -p0
 
 # lib64 fix
 perl -pi -e "s|/lib\b|/%{_lib}|g" configure*
 
 %build
-%define __libtoolize /bin/true
-
-
 CFLAGS="%{optflags}" ac_cv_prog_cc_g=no ac_cv_prog_cxx_g=no \
-%configure --prefix=%{_prefix} --enable-cipher --enable-zlib
+%configure2_5x --prefix=%{_prefix} --enable-cipher --enable-zlib
 
 perl -pi -e 's/-o root / /g; s/-o \$\(installuser\) / /g; y/{}/()/' Makefile
-%make
+%make LDFLAGS="%ldflags"
 
 %install
 if [ -d %{buildroot} ]; then rm -rf %{buildroot}; fi
 
-%makeinstall
+%makeinstall_std
 
 # remove unwanted files
 rm -rf %{buildroot}%{_sbindir}/uninstall-nessus
