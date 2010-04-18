@@ -5,7 +5,7 @@
 Summary:	Libraries needed by the Nessus security scanner
 Name:		nessus-libraries
 Version:	2.2.10
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.nessus.org
@@ -16,6 +16,7 @@ Patch1:		nessus-libraries-2.2.10-link.patch
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	openssl-devel
+BuildRequires:	%libnamedev
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
