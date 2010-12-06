@@ -5,7 +5,7 @@
 Summary:	Libraries needed by the Nessus security scanner
 Name:		nessus-libraries
 Version:	2.2.10
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.nessus.org
