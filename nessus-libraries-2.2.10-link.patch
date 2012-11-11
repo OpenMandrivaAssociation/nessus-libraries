@@ -1,0 +1,22 @@
+--- ../../SOURCES/nessus-libraries/libnessus/Makefile	2004-08-31 19:15:07.000000000 +0200
++++ libnessus/Makefile	2010-04-16 05:35:25.000000000 +0200
+@@ -101,7 +101,7 @@
+ 	$(LIBTOOL) $(CC) $(CIPHER) $(DEFS) $(INCLUDE) $(CFLAGS) -c snprintf.c	
+ libnessus.la: $(OBJS)
+ 	$(LIBTOOL) $(CC) -o libnessus.la $(LO_OBJS) -rpath ${libdir} \
+-	-version-info ${PACKAGE_VERSION}
++	-version-info ${PACKAGE_VERSION} ../libpcap-nessus/libpcap-nessus.la -lssl
+ 
+ install : libnessus.la
+ 	test -d $(DESTDIR)${libdir} || $(INSTALL_DIR) -m 755 $(DESTDIR)${libdir}
+--- libhosts_gatherer/Makefile.link	2010-04-16 05:39:03.000000000 +0200
++++ libhosts_gatherer/Makefile	2010-04-16 05:39:33.000000000 +0200
+@@ -23,7 +23,7 @@
+ 	
+ libhosts_gatherer.la : $(OBJS)
+ 	$(LIBTOOL) $(CC) -o libhosts_gatherer.la $(LO_OBJS) -rpath ${libdir} \
+-	-version-info ${PACKAGE_VERSION}
++	-version-info ${PACKAGE_VERSION} -lresolv
+ 	        
+ hg_utils.o : hg_utils.h hosts_gatherer.h hg_utils.c
+ 	$(LIBTOOL) --mode=compile  $(COMPILE) -c hg_utils.c

@@ -1,0 +1,13 @@
+--- nessus-config.pre.in	2003-02-22 16:57:49.000000000 +0100
++++ nessus-config.pre.in.oden	2006-03-09 13:02:45.000000000 +0100
+@@ -12,8 +12,8 @@
+ 
+ 
+ PREFIX=@prefix@
+-LIBDIR=$PREFIX/lib
+-INCLUDEDIR=$PREFIX/include
++LIBDIR=@libdir@
++INCLUDEDIR=@includedir@
+ DEFS="@syspcap@"
+ VERSION=@version@
+ CIPHER="%CIPHER_LDFLAGS%"
