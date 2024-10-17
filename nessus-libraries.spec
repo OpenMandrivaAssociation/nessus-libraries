@@ -8,7 +8,7 @@ Version:	2.2.10
 Release:	8
 License:	GPL
 Group:		System/Libraries
-URL:		http://www.nessus.org
+URL:		https://www.nessus.org
 # http://cgi.tenablesecurity.com/nessus3dl.php?file=nessus-libraries-2.2.10.tar.gz&licence_accept=yes&t=5a144975306462c6d49d299ba1d6c0b2
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		nessus-libraries-2.2.7-nessus-config.diff
