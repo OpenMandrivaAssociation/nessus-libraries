@@ -13,6 +13,11 @@ URL:		https://www.nessus.org
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		nessus-libraries-2.2.7-nessus-config.diff
 Patch1:		nessus-libraries-2.2.10-link.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	openssl-devel
